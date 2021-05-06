@@ -3,7 +3,7 @@ package code;
 import java.util.*;
 
 public class kakao_blind_2019_1 {
-	static int[] stages = { 2, 1, 2, 6, 2, 4, 3, 3 };
+	static int[] stages = { 1, 1, 1, 1, 1, 1, 1, 1 };
 	static int n = 5;
 
 	public static void main(String arg[]) {
@@ -37,15 +37,28 @@ public class kakao_blind_2019_1 {
 				}
 
 			}
-			stages_fail = (double)people / (double)all_people;
-			
-			m.put(stage, stages_fail);
-			
-		}
-		
-		
 
-	
+			m.put(stage, people != 0 && all_people != 0 ? (double) people / (double) all_people : 0);
+
+		}
+
+		for (int i = 0; i < N; i++) {
+			double max = -1;
+			int cur_key = 0;
+
+			for (Integer k : m.keySet()) {
+
+				if (max < m.get(k)) {
+					max = m.get(k);
+					cur_key = k;
+				}
+
+			}
+
+			answer[i] = cur_key;
+			m.remove(cur_key);
+		}
+
 		return answer;
 	}
 }
