@@ -1,6 +1,6 @@
 # Programmers
 
-💨 이 repository는 Programmers에 등록된 문제와 개인 공부 내용이 들어가있습니다.
+💨 이 repository는 Programmers 문제와 개인 공부 내용이 포함되어 있습니다.
 
 
 
@@ -43,3 +43,47 @@ ex) 힙 정렬(Insertion sort), 쉘 정렬(Shell sort), 선택 정렬(Selection 
 문제 해결에 필요한 단계가 2의 입력값(n) 제곱만큼 수행된다.
 
 ex) 피보나치 수열(Fibonacci Sequence)
+
+
+
+## 완전탐색 (Exhaustive Search)
+
+### Brute Force
+
+단순히 for문과 if문 등으로 모든 case들을 만들어 답을 구하는 방법
+
+
+
+### Bitmask
+
+2진수를 이용하는 컴퓨터의 연산을 이용하는 방법 / 모든 부분집합을 구하는 방법
+
+
+
+### Backtracking
+
+해를 찾는 도중 해가 아니어서 막히면, 되돌아가서 다시 해를 찾아가는 방법
+
+
+
+### 재귀
+
+재귀 함수를 통해서 문제를 만족하는 경우들을 만들어가는 방법
+
+
+
+### 순열
+
+서로 다른 N개를 일렬로 나열하는 방법(N!)
+
+
+
+### BFS
+
+너비 우선 탐색 방법
+
+
+
+### DFS
+
+깊이 우선 탐색 방법
