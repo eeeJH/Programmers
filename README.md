@@ -87,3 +87,89 @@ ex) 피보나치 수열(Fibonacci Sequence)
 ### DFS
 
 깊이 우선 탐색 방법
+
+
+
+
+
+## Dynamic Programming
+
+### 동적계획법
+
+큰 문제 안에 작은 문제가 중첩되어있는 문제를 해결하는 데 사용하는 방법
+
+구현하는 방식이 ***Bottom-up***과 ***Top-down*** 방식 두 가지
+
+예) 피보나치 수열 
+
+**Top-Down (재귀함수)**
+
+```java
+public class fib {
+
+	public static void main(String arg[]) {
+        // 5 출력
+		System.out.println(fib(5));
+	}
+
+	public static int fib(int n) {
+		if (n == 0) {
+			return 0;
+		} else if (n == 1) {
+			return 1;
+		}
+		
+		return fib(n - 1) + fib(n - 2);
+
+	}
+}
+```
+
+피보나치 5 ( fib(5) )를 구하기 이해서는 다음과 같은 계산과정을 진행한다.
+
+`fib(5)`
+
+== fib(4) + fib(3)
+
+== (fib(3) + fib(2)) + (fib(2) + fib(1))
+
+== ((fib(2) + fib(1)) + (fib(1) + fib(0))) + ((fib(1) + fib(0)) + fib(1))
+
+== (((fib(1) + fib(0)) + fib(1)) + (fib(1) + fib(0))) + ((fib(1) + fib(0)) + fib(1))
+
+== 5
+
+
+
+**Bottom-Up**
+
+여기에서 중간에 **중복 호출이 발생**하기 때문에 **Memoization 기법**을 사용해줘야한다.
+
+```java
+public class fib {
+
+	static int[] d;
+
+	public static void main(String arg[]) {
+		int n = 5;
+		d = new int[n];
+		
+		// 5출력
+		System.out.println(fib(n));
+	}
+
+	public static int fib(int n) {
+		d[0] = 1;
+		d[1] = 1;
+
+		for (int i = 2; i < n; i++) {
+			d[i] = d[i - 1] + d[i - 2];
+		}
+
+		return d[n - 1];
+	}
+}
+```
+
+for문을 통해서 계산에 쓸 d[0], d[1]을 *d*에 미리 저장하고, 이를 제외하고 *d*[i]에 값을 계산해서 저장한다.
+
