@@ -1,4 +1,4 @@
-package code;
+package programmers;
 import java.util.*;
 
 public class kakao_internship_2020_2 {

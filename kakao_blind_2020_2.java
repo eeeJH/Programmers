@@ -1,4 +1,4 @@
-package code;
+package programmers;
 
 public class kakao_blind_2020_2 {
 

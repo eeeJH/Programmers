@@ -1,4 +1,4 @@
-package code;
+package programmers;
 
 public class kakao_internship_2020_1 {
 	static int cur_leftHand = 10;
