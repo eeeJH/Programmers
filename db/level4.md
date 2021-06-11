@@ -1,0 +1,95 @@
+# ***LEVEL 4***
+
+
+
+## 우유와 요거트가 담긴 장바구니
+
+```sql
+SELECT A.CART_ID 
+FROM (
+    SELECT CART_ID 
+    FROM CART_PRODUCTS 
+    WHERE NAME = 'Yogurt'
+) A,
+(
+    SELECT CART_ID 
+    FROM CART_PRODUCTS 
+    WHERE NAME = 'Milk'
+) B
+WHERE A.CART_ID = B.CART_ID
+GROUP BY CART_ID;
+```
+
+```sql
+-- oracle
+SELECT
+    CART_ID
+FROM
+    CART_PRODUCTS
+WHERE
+    NAME = 'Milk'
+INTERSECT 
+SELECT
+    CART_ID
+FROM
+    CART_PRODUCTS
+WHERE
+    NAME = 'Yogurt'
+```
+
+
+
+## 보호소에서 중성화한 동물
+
+```sql
+SELECT a.ANIMAL_ID, a.ANIMAL_TYPE, a.NAME
+FROM (
+    SELECT *
+    FROM ANIMAL_INS
+    WHERE SEX_UPON_INTAKE LIKE 'Intact%'
+) a
+JOIN ANIMAL_OUTS o ON a.ANIMAL_ID = o.ANIMAL_ID
+WHERE o.SEX_UPON_OUTCOME NOT LIKE 'Intact%'
+ORDER BY ANIMAL_ID;
+```
+
+
+
+## 입양 시각 구하기(2)
+
+```sql
+WITH RECURSIVE CTE AS (
+    SELECT 0 HOUR
+    UNION ALL
+    SELECT HOUR + 1
+    FROM CTE
+    WHERE HOUR < 23 
+)
+                
+SELECT      CTE.hour, COUNT(O.ANIMAL_ID)
+FROM        CTE
+LEFT JOIN   ANIMAL_OUTS O
+ON          CTE.hour = HOUR(O.DATETIME)
+GROUP BY    CTE.hour
+```
+
+```sql
+-- oracle
+WITH TIME AS
+(
+    SELECT LPAD(LEVEL - 1,2,'0') HOUR
+    FROM DUAL
+    CONNECT BY LEVEL <= 24
+)
+
+SELECT 
+    T.HOUR AS HOUR, 
+    COUNT(O.DATETIME) AS COUNT
+FROM 
+    TIME T 
+    LEFT JOIN ANIMAL_OUTS O 
+    ON T.HOUR = TO_NUMBER(TO_CHAR(O.DATETIME,'HH24'))
+GROUP BY T.HOUR
+ORDER BY T.HOUR;
+```
+
