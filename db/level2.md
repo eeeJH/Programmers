@@ -119,3 +119,17 @@ FROM ANIMAL_INS
 ORDER BY ANIMAL_ID;
 ```
 
+대소문자 구별
+
+%y = 12, 14 등으로 표시
+
+%Y = 2012, 2014 등으로 표시
+
+%m = 01, 02, 12 등으로 표시
+
+%M = January, February, December 등으로 표시
+
+%d = 01, 02, 03 등으로 표시
+
+%D = 1st, 2nd, 3rd 등으로 표시
+
