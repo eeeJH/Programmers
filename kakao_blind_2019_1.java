@@ -2,6 +2,21 @@ package programmers;
 
 import java.util.*;
 
+/*
+ * https://programmers.co.kr/learn/courses/30/lessons/42889
+ * <pre>
+ * <b>Programmers</b>
+ * 
+ * @author 이주현
+ * @version 1.0
+ * @date 2022.02.05
+ * 
+ * <p>
+  		KAKAO BLIND 2019
+ 		실패율 
+ * </p>
+*/
+
 public class kakao_blind_2019_1 {
 	static int[] stages = { 1, 1, 1, 1, 1, 1, 1, 1 };
 	static int n = 5;
